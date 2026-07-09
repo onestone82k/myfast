@@ -13,6 +13,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # [1단계: 파일 전송 부분]
+      - name: Copy FastAPI files via SSH (SCP)
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST}}
+          username: ${{ secrets.EC2_USERNAME}}
+          key: ${{ secrets.EC2_SSH_KEY}}
+          port: 22
+          source: "**"
+          target: "~/pivot-dev/backend"      
+      
+      # [2단계: 원격 실행 부분]
       - name: Deploy vis SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
