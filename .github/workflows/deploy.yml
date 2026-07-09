@@ -23,5 +23,5 @@ jobs:
           script: |
            # 1. 서버의 프로젝트 폴더로 이동
            cd ~/pivot-dev
-
+          
            docker compose up -d --build
