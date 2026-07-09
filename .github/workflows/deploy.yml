@@ -1,0 +1,27 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy vis SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST}}
+          username: ${{ secrets.EC2_USERNAME}}
+          key: ${{ secrets.EC2_SSH_KEY}}
+          port: 22
+          script: |
+           # 1. 서버의 프로젝트 폴더로 이동
+           cd ~/pivot-dev
+
+           docker compose up -d --build
