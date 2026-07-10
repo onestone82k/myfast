@@ -1,5 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from src.config.database import get_db
+from src.models import Target
+from sqlalchemy.orm import Session
 
 app = FastAPI()
 
@@ -15,6 +18,8 @@ app.add_middleware(
 def read_root():
     return {"msg":"Hello World!"}
 
+
 @app.get("/api/message")
-def get_message():
-  return {"message":"안녕하세요. 백엔드 메세지 호출하셨죠?"}
+def get_message(db: Session = Depends(get_db)):
+    targets = db.query(Target).limit(10).all()
+    return {"data": targets}
