@@ -35,7 +35,7 @@ jobs:
           script: |
            # 1. 서버의 프로젝트 폴더로 이동
            cd ~/pivot-dev
-           find . -maxdepth 1 -not -name '.' -not -name '..' -not -name '.env' -not -name 'mysql_data' -exec rm -rf {} +
+           rm -rf ~/pivot-dev/backend/*
 
            docker compose build --no-cache
            docker compose up -d --build
