@@ -35,7 +35,7 @@ jobs:
           script: |
            # 1. 서버의 프로젝트 폴더로 이동
            cd ~/pivot-dev
-           rm -rf ~/pivot-dev/backend/*
+           find backend/ -maxdepth 1 -not -name 'backend' -exec rm -rf {} +
 
            docker compose build --no-cache
            docker compose up -d --build
