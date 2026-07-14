@@ -22,4 +22,4 @@ def read_root():
 @app.get("/api/message")
 def get_message(db: Session = Depends(get_db)):
     targets = db.query(Target).limit(10).all()
-    return {"data": targets}
+    return {"message": targets}
