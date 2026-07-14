@@ -22,7 +22,8 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY}}
           port: 22
           source: "**"
-          target: "~/pivot-dev/backend"      
+          target: "~/pivot-dev/backend"
+          rm: true
       
       # [2단계: 원격 실행 부분]
       - name: Deploy vis SSH
@@ -34,8 +35,7 @@ jobs:
           port: 22
           script: |
            # 1. 서버의 프로젝트 폴더로 이동
-           cd ~/pivot-dev
-           rm -rf ~/pivot-dev/backend/*
+           cd ~/pivot-dev           
 
            docker compose build --no-cache
            docker compose up -d
