@@ -11,7 +11,7 @@ class Settings(BaseSettings):
 
   APP_ENV: str | None = None
   MYSQL_ROOT_PASSWORD: str | None = None
-  MYSQL_DATABASE: str | None = None
+  MYSQL_DATABASE: str | None = None 
   
   # 2. env_state 값에 따라 읽어들일 파일을 동적으로 결정
   model_config = SettingsConfigDict(
