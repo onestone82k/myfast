@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# 환경설정파일
+.env
+.env.local
+.env.dev
+.env.stg
+.env.prod
+
