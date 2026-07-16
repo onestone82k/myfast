@@ -39,3 +39,4 @@ jobs:
           
           # 3. 찌꺼기 이미지 정리
           docker image prune -f
+          
