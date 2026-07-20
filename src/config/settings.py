@@ -14,7 +14,7 @@ class Settings(BaseSettings):
   MYSQL_DATABASE: str | None = None 
   
   # 2. env_state 값에 따라 읽어들일 파일을 동적으로 결정
-  model_config = SettingsConfigDict(  
+  model_config = SettingsConfigDict(   
     env_file=f".env.{env_state}",
     env_file_encoding="utf-8",
     extra="ignore"
