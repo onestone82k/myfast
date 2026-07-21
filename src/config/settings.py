@@ -6,8 +6,8 @@ env_state = os.getenv("APP_ENV", "local")
 
 class Settings(BaseSettings):
   APP_NAME: str = "FastAPI App"
-  DATABASE_URL: str  = "mysql+pymysql://root:djfudnsdkagh4$@mysql:3306/pivot"
-  JWT_SECRET: str = "super-secret-key"
+  DATABASE_URL: str #  = "mysql+pymysql://root:djfudnsdkagh4$@mysql:3306/pivot"
+  JWT_SECRET: str # = "super-secret-key"
 
   APP_ENV: str | None = None
   MYSQL_ROOT_PASSWORD: str | None = None
